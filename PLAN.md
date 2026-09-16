@@ -106,7 +106,7 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 3. **Contact links:** Telegram + Gmail (`mailto:`). No other platforms for now.
 4. **Domain:** default `*.vercel.app` — no custom domain for now.
 5. **Content:** i18n keys file created with placeholder RU/EN copy for every section — see [i18n/locales/](i18n/locales/). You correct/finalize the actual wording; structure and keys stay stable so the app doesn't need rewiring once text changes.
-6. **3D scene concept:** my creative call — core figure is an abstract representation of *a developer* (stylized silhouette/figure at a workstation or a code-construct built from geometric primitives), monochrome, reacting to pointer/scroll. Concretized during the "wow layer" build phase; will show a preview before wiring it into the final hero.
+6. **3D scene concept:** first attempt (a low-poly primitive-built seated figure at a laptop, TresJS/Three.js) was built, wired into the hero, and rejected outright — removed along with TresJS/Three.js/GSAP entirely (see git history: "Add the 3D hero scene" then "Remove the 3D developer figure and its dependencies"). The hero is back to the plain static placeholder. **Open again:** whether to retry the 3D figure with a different visual approach, drop 3D from the wow-effect list in favor of the other three (animation, experimental UI, technical depth), or something else — needs your direction before another attempt.
 
 ## 5a. Engineering standards (confirmed, binding for implementation)
 
