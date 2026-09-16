@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { AppButton, MonoTag } from '@/shared/ui'
-import HeroScene from './HeroScene.vue'
 
 const localePath = useLocalePath()
 const { t } = useI18n()
@@ -8,7 +7,7 @@ const { t } = useI18n()
 
 <template>
   <section class="hero">
-    <HeroScene />
+    <div class="hero__scene-placeholder" aria-hidden="true" />
     <MonoTag class="hero__eyebrow">{{ t('home.hero.eyebrow') }}</MonoTag>
     <h1 class="hero__name">{{ t('home.hero.name') }}</h1>
     <p class="hero__tagline">{{ t('home.hero.tagline') }}</p>
@@ -33,6 +32,14 @@ const { t } = useI18n()
   min-height: 70vh;
   padding: $spacing-72 0;
   justify-content: center;
+}
+
+.hero__scene-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: $surface-paper;
+  border-radius: $radius-cards;
 }
 
 .hero__eyebrow {

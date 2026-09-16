@@ -1,19 +1,15 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-01',
 
-  modules: ['@nuxtjs/i18n', '@tresjs/nuxt', '@nuxt/eslint'],
+  modules: ['@nuxtjs/i18n', '@nuxt/eslint'],
 
   // FSD owns component/composable placement explicitly (shared/ui, widgets, features,
   // entities) instead of Nuxt's implicit components/ + composables/ auto-import scan.
   components: false,
 
   typescript: {
-    strict: true
-    // typeCheck (live dev-server overlay) is off: its own error-rendering
-    // path crashes on the Tres position/rotation type mismatch below
-    // ("_ctx.Vector3 is not a constructor" — a bug in the overlay itself,
-    // not in the app). `npx nuxt typecheck` still runs this project's
-    // real type-checking as a separate, non-overlay command.
+    strict: true,
+    typeCheck: true
   },
 
   css: ['~/shared/styles/main.scss'],
