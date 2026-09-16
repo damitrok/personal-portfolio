@@ -1,0 +1,95 @@
+{
+  "common": {
+    "langSwitch": "RU",
+    "skipToContent": "Skip to content",
+    "viewSource": "View source"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "stack": "Stack",
+    "architecture": "Architecture",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "[FRONTEND DEVELOPER]",
+      "name": "Dmitriy Mitrokhin",
+      "role": "Frontend Developer",
+      "tagline": "I build interfaces for complex systems — and this site is the proof.",
+      "cta": "See the architecture",
+      "scrollHint": "Scroll"
+    }
+  },
+  "about": {
+    "title": "About",
+    "eyebrow": "[01 ABOUT]",
+    "intro": "Middle frontend developer working on complex, high-stakes internal systems. The specifics are under NDA — the craft is on display here instead.",
+    "experience": {
+      "label": "Experience",
+      "value": "X years"
+    },
+    "focusLabel": "Focus",
+    "focusValue": "Complex interfaces, design systems, performance-critical UI",
+    "summary": "Placeholder bio paragraph — replace with your actual background, the kinds of systems you've worked on in general terms, and what you care about as an engineer."
+  },
+  "stack": {
+    "title": "Stack & Tools",
+    "eyebrow": "[02 STACK]",
+    "subtitle": "What I use, and how well I know it.",
+    "categories": {
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "tooling": "Tooling",
+      "testing": "Testing"
+    },
+    "levels": {
+      "familiar": "Familiar",
+      "confident": "Confident",
+      "advanced": "Advanced"
+    }
+  },
+  "architecture": {
+    "title": "Architecture of This Site",
+    "eyebrow": "[03 ARCHITECTURE]",
+    "intro": "This page is the case study: no NDA-protected client work, just this site's own decisions, laid out honestly — including the parts of DESIGN.md we deliberately broke.",
+    "sections": {
+      "rendering": {
+        "title": "Rendering strategy",
+        "body": "Placeholder — explain static generation, Nuxt 4, and why no server is needed."
+      },
+      "animation": {
+        "title": "3D & animation",
+        "body": "Placeholder — explain TresJS/Three.js for the hero scene and GSAP for scroll-driven sequences, plus the reduced-motion fallback."
+      },
+      "i18n": {
+        "title": "Bilingual content",
+        "body": "Placeholder — explain the i18n setup and the RU/EN switch."
+      },
+      "codeViewer": {
+        "title": "The code viewer",
+        "body": "Placeholder — explain how snippets are pulled from real source at build time instead of hand-copied."
+      },
+      "performance": {
+        "title": "Performance budget",
+        "body": "Placeholder — explain code-splitting the 3D/animation bundle away from the lighter pages, image optimization, and the Lighthouse target."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "eyebrow": "[04 CONTACT]",
+    "intro": "Open to hearing about frontend roles.",
+    "email": {
+      "label": "Email",
+      "value": "mitrofan12a@gmail.com"
+    },
+    "telegram": {
+      "label": "Telegram",
+      "value": "@your_handle"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Dmitriy Mitrokhin"
+  }
+}
