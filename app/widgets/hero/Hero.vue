@@ -7,7 +7,6 @@ const { t } = useI18n()
 
 <template>
   <section class="hero">
-    <div class="hero__scene-placeholder" aria-hidden="true" />
     <MonoTag class="hero__eyebrow">{{ t('home.hero.eyebrow') }}</MonoTag>
     <h1 class="hero__name">{{ t('home.hero.name') }}</h1>
     <p class="hero__tagline">{{ t('home.hero.tagline') }}</p>
@@ -23,7 +22,6 @@ const { t } = useI18n()
 @use '@/shared/styles/mixins' as *;
 
 .hero {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,14 +30,6 @@ const { t } = useI18n()
   min-height: 70vh;
   padding: $spacing-72 0;
   justify-content: center;
-}
-
-.hero__scene-placeholder {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: $surface-paper;
-  border-radius: $radius-cards;
 }
 
 .hero__eyebrow {

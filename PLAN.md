@@ -71,9 +71,10 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 ## 4. Section-by-section plan
 
 ### Home / Hero
-- Visual anchor is animation/interaction-driven (GSAP + experimental UI), not 3D — concept TBD, needs a fresh direction before building
+- No dedicated visual-anchor centerpiece — skipped by choice, not TBD. Plain typographic hero: eyebrow, name, tagline, CTA, scroll hint, on the bare canvas.
 - Name, one-line positioning, role in Helvetica display type per DESIGN.md scale
 - Scroll cue into the rest of the page
+- Wow-effects (animation, experimental UI, technical depth) still apply elsewhere on the site — just not as a hero centerpiece
 
 ### About / Experience
 - Short narrative bio, years of experience, what kind of systems worked on (in general terms — no NDA specifics)
@@ -105,7 +106,7 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 3. **Contact links:** Telegram + Gmail (`mailto:`). No other platforms for now.
 4. **Domain:** default `*.vercel.app` — no custom domain for now.
 5. **Content:** i18n keys file created with placeholder RU/EN copy for every section — see [i18n/locales/](i18n/locales/). You correct/finalize the actual wording; structure and keys stay stable so the app doesn't need rewiring once text changes.
-6. **3D scene: dropped.** First attempt (a low-poly primitive-built seated figure at a laptop, TresJS/Three.js) was built, wired into the hero, and rejected outright — removed along with TresJS/Three.js entirely (see git history: "Add the 3D hero scene" then "Remove the 3D developer figure and its dependencies"). The hero is back to the plain static placeholder. **Decided:** no more 3D — the wow-effect budget goes into the remaining three: complex animation/scroll-driven transitions (GSAP), non-typical/experimental UI, and technical depth under the hood. The hero's visual anchor concept is still open and needs a fresh direction before building.
+6. **3D scene / hero visual anchor: dropped, not replaced.** First attempt (a low-poly primitive-built seated figure at a laptop, TresJS/Three.js) was built, wired into the hero, and rejected outright — removed along with TresJS/Three.js entirely (see git history: "Add the 3D hero scene" then "Remove the 3D developer figure and its dependencies"). Rather than searching for a different hero centerpiece concept, the idea itself is skipped: the hero stays a plain typographic block (no placeholder box either — see [Hero.vue](app/widgets/hero/Hero.vue)). The wow-effect budget goes entirely into the remaining three: complex animation/scroll-driven transitions (GSAP), non-typical/experimental UI, and technical depth under the hood — applied elsewhere on the site, not as a hero centerpiece.
 
 ## 5a. Engineering standards (confirmed, binding for implementation)
 
