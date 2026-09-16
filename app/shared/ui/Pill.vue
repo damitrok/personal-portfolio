@@ -1,9 +1,16 @@
 <script setup lang="ts">
-withDefaults(defineProps<{ as?: string; active?: boolean }>(), { as: 'div', active: false })
+import { NuxtLink } from '#components'
+
+const props = withDefaults(defineProps<{ as?: string; active?: boolean }>(), { as: 'div', active: false })
+
+// A dynamic `:is="'NuxtLink'"` string doesn't resolve at runtime once
+// component auto-scanning is off (see nuxt.config `components: false`) —
+// it must be the actual imported component reference.
+const resolvedAs = computed(() => (props.as === 'NuxtLink' ? NuxtLink : props.as))
 </script>
 
 <template>
-  <component :is="as" class="pill" :class="{ 'pill--active': active }">
+  <component :is="resolvedAs" class="pill" :class="{ 'pill--active': active }">
     <slot />
   </component>
 </template>

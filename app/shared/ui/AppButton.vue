@@ -1,5 +1,7 @@
 <script setup lang="ts">
-withDefaults(
+import { NuxtLink } from '#components'
+
+const props = withDefaults(
   defineProps<{
     as?: string
     variant?: 'solid' | 'outline'
@@ -7,10 +9,15 @@ withDefaults(
   }>(),
   { as: 'button', variant: 'outline', to: undefined }
 )
+
+// A dynamic `:is="'NuxtLink'"` string doesn't resolve at runtime once
+// component auto-scanning is off (see nuxt.config `components: false`) —
+// it must be the actual imported component reference.
+const resolvedAs = computed(() => (props.to ? NuxtLink : props.as))
 </script>
 
 <template>
-  <component :is="to ? 'NuxtLink' : as" :to="to" class="app-button" :class="`app-button--${variant}`">
+  <component :is="resolvedAs" :to="to" class="app-button" :class="`app-button--${variant}`">
     <slot />
   </component>
 </template>
