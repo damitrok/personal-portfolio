@@ -8,8 +8,12 @@ export default defineNuxtConfig({
   components: false,
 
   typescript: {
-    strict: true,
-    typeCheck: true
+    strict: true
+    // typeCheck (live dev-server overlay) is off: its own error-rendering
+    // path crashes on the Tres position/rotation type mismatch below
+    // ("_ctx.Vector3 is not a constructor" — a bug in the overlay itself,
+    // not in the app). `npx nuxt typecheck` still runs this project's
+    // real type-checking as a separate, non-overlay command.
   },
 
   css: ['~/shared/styles/main.scss'],

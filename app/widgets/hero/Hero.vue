@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { AppButton, MonoTag } from '@/shared/ui'
+import HeroScene from './HeroScene.vue'
 
 const localePath = useLocalePath()
 const { t } = useI18n()
-
-// The 3D scene (TresJS/Three.js) replaces this static placeholder in the
-// "wow layer" build phase — see PLAN.md section 6, phase 3.
 </script>
 
 <template>
   <section class="hero">
-    <div class="hero__scene-placeholder" aria-hidden="true" />
+    <HeroScene />
     <MonoTag class="hero__eyebrow">{{ t('home.hero.eyebrow') }}</MonoTag>
     <h1 class="hero__name">{{ t('home.hero.name') }}</h1>
     <p class="hero__tagline">{{ t('home.hero.tagline') }}</p>
@@ -35,14 +33,6 @@ const { t } = useI18n()
   min-height: 70vh;
   padding: $spacing-72 0;
   justify-content: center;
-}
-
-.hero__scene-placeholder {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: $surface-paper;
-  border-radius: $radius-cards;
 }
 
 .hero__eyebrow {
