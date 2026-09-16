@@ -12,8 +12,8 @@ Status: approved direction, decisions locked in section 5. Ready to scaffold.
 
 **Portfolio constraint:** real work is under NDA / part of complex internal systems — cannot be shown in detail (no screenshots, no client names, no case studies with specifics). **The site itself becomes the portfolio piece**: its architecture, code quality, and craft are the proof of skill.
 
-**"Wow" requirements (all four, layered on top of the base design):**
-- 3D / WebGL scenes
+**"Wow" requirements (layered on top of the base design):**
+- ~~3D / WebGL scenes~~ — tried (a low-poly figure in the hero), rejected, dropped from scope entirely. See section 5, point 6.
 - Complex animations and scroll-driven transitions
 - Non-typical / experimental UI moments
 - Real technical depth under the hood (not just visual flash)
@@ -22,7 +22,7 @@ Status: approved direction, decisions locked in section 5. Ready to scaffold.
 
 **Aesthetic direction:** strict corporate / "inevitable"-style as the base (restrained grid, disciplined typography) — the wow-effects are surprising interactive *details*, not a loud, maximalist skin.
 
-**Design system base:** reuse [DESIGN.md](DESIGN.md) (monochrome editorial system: Press Ink `#121212` on Paper White `#ffffff`, Helvetica Neue display type up to 274px, PPSupplyMono captions, sparkle dividers, hairline borders, no chromatic color). Its typography/color/spacing tokens carry over as-is. **Its "Don'ts" about no 3D / no animation / no hover-transition are explicitly overridden** for this project — those effects are added on top of the type/color system, not instead of it.
+**Design system base:** reuse [DESIGN.md](DESIGN.md) (monochrome editorial system: Press Ink `#121212` on Paper White `#ffffff`, Helvetica Neue display type up to 274px, PPSupplyMono captions, sparkle dividers, hairline borders, no chromatic color). Its typography/color/spacing tokens carry over as-is. **Its "Don'ts" about no animation / no hover-transition are explicitly overridden** for this project — those effects are added on top of the type/color system, not instead of it.
 
 **Sections:**
 1. About / experience
@@ -46,7 +46,6 @@ Status: approved direction, decisions locked in section 5. Ready to scaffold.
 |---|---|---|
 | Framework | Nuxt 4 (Vue 3, TypeScript) | Matches the stack to highlight; SSG/SSR for SEO + fast first paint |
 | Rendering mode | Static generation (`nuxt generate`) | No backend needed (contact is `mailto`); ships to Vercel as static + edge, fastest possible |
-| 3D/WebGL | Three.js via TresJS (Vue-native Three.js wrapper) | Declarative, fits Vue component model, avoids raw imperative Three.js glue code sprinkled through the app |
 | Animation | GSAP (+ ScrollTrigger) for scroll-driven sequences; native CSS/Vue transitions for small UI motion | GSAP is the standard for complex, scrubbed, sequenced animation; keeps simple transitions cheap |
 | i18n | `@nuxtjs/i18n` | Standard Nuxt module, static-generation compatible, RU/EN route or query-based switch |
 | Code viewer | Shiki (syntax highlighting) + custom slide-over panel reading source snippets bundled at build time (via `?raw` imports) | No third-party embed, no data leaves the site, full control over styling to match the design system |
@@ -58,7 +57,7 @@ Status: approved direction, decisions locked in section 5. Ready to scaffold.
 ## 3. Site structure
 
 ```
-/                    Home — hero (3D/animated), condensed intro, links to sections
+/                    Home — hero (animated), condensed intro, links to sections
 /about               About / experience
 /stack               Stack & tools with proficiency levels
 /architecture         "This site as a case study" — technical write-up
@@ -72,7 +71,7 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 ## 4. Section-by-section plan
 
 ### Home / Hero
-- Full-viewport 3D scene (TresJS) as the visual anchor — abstract geometric form, not literal/decorative, reacts to pointer/scroll
+- Visual anchor is animation/interaction-driven (GSAP + experimental UI), not 3D — concept TBD, needs a fresh direction before building
 - Name, one-line positioning, role in Helvetica display type per DESIGN.md scale
 - Scroll cue into the rest of the page
 
@@ -85,7 +84,7 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 - Proficiency indicated visually (not a gimmicky star rating — something consistent with the "inevitable" aesthetic, e.g. a monospace-labeled scale)
 
 ### Architecture of This Site (the core "wow" section)
-- Written case study: rendering strategy, why TresJS/GSAP, i18n approach, performance budget, code-viewer implementation
+- Written case study: rendering strategy, why GSAP, i18n approach, performance budget, code-viewer implementation
 - Each claim backed by an inline "view source" trigger opening the code viewer panel for that exact component
 - This section is effectively the portfolio case study substitute
 
@@ -95,7 +94,7 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 
 ### In-page Code Viewer (cross-cutting feature, not its own route)
 - Slide-over or modal panel
-- Triggered from small "&lt;/&gt;" affordances placed next to 3D scenes, animated sections, and notable components
+- Triggered from small "&lt;/&gt;" affordances placed next to animated sections and notable components
 - Shiki-highlighted, read-only, shows the actual source file bundled at build time
 - Must stay in sync with real source (no hand-copied/stale snippets) — snippet imports pull directly from the component files
 
@@ -106,7 +105,7 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 3. **Contact links:** Telegram + Gmail (`mailto:`). No other platforms for now.
 4. **Domain:** default `*.vercel.app` — no custom domain for now.
 5. **Content:** i18n keys file created with placeholder RU/EN copy for every section — see [i18n/locales/](i18n/locales/). You correct/finalize the actual wording; structure and keys stay stable so the app doesn't need rewiring once text changes.
-6. **3D scene concept:** first attempt (a low-poly primitive-built seated figure at a laptop, TresJS/Three.js) was built, wired into the hero, and rejected outright — removed along with TresJS/Three.js/GSAP entirely (see git history: "Add the 3D hero scene" then "Remove the 3D developer figure and its dependencies"). The hero is back to the plain static placeholder. **Open again:** whether to retry the 3D figure with a different visual approach, drop 3D from the wow-effect list in favor of the other three (animation, experimental UI, technical depth), or something else — needs your direction before another attempt.
+6. **3D scene: dropped.** First attempt (a low-poly primitive-built seated figure at a laptop, TresJS/Three.js) was built, wired into the hero, and rejected outright — removed along with TresJS/Three.js entirely (see git history: "Add the 3D hero scene" then "Remove the 3D developer figure and its dependencies"). The hero is back to the plain static placeholder. **Decided:** no more 3D — the wow-effect budget goes into the remaining three: complex animation/scroll-driven transitions (GSAP), non-typical/experimental UI, and technical depth under the hood. The hero's visual anchor concept is still open and needs a fresh direction before building.
 
 ## 5a. Engineering standards (confirmed, binding for implementation)
 
@@ -115,8 +114,8 @@ Each route ships in RU and EN via i18n (`/ru/...`, `/en/...` or default-locale r
 src/
   app/          bootstrap: Nuxt config glue, providers, global styles entry, i18n setup
   pages/        route-level compositions (thin — assemble widgets/features only)
-  widgets/      composite blocks: Hero3D, NavPill, FooterStrip, CodeViewerPanel
-  features/     interactive units: LangSwitch, CodeSnippetTrigger, ScrollScene
+  widgets/      composite blocks: Hero, NavPill, FooterStrip, CodeViewerPanel
+  features/     interactive units: LangSwitch, CodeSnippetTrigger
   entities/     domain data shapes: StackItem, ExperienceEntry, ContactLink
   shared/
     ui/         reusable, app-agnostic UI kit: Button, Pill, MonoTag, SparkleDivider, Panel
@@ -143,11 +142,11 @@ src/
 
 ### Performance budget
 - Fully static output (`nuxt generate`), deployed as static + edge on Vercel — no server round-trip for content.
-- Heavy libraries (Three.js/TresJS, GSAP) code-split and lazy-loaded only on the routes/components that need them (dynamic `import()`, `<ClientOnly>` for WebGL) — the About/Stack/Contact pages must not pay the 3D bundle cost.
+- GSAP code-split and lazy-loaded only on the routes/components that actually animate (dynamic `import()`) — pages with no animation shouldn't pay for the library.
 - `@nuxt/image` for any raster assets (see section 8) with responsive `srcset`, modern formats (AVIF/WebP), explicit dimensions to avoid layout shift.
 - Self-hosted, subsetted fonts (Helvetica Neue substitute + mono + handwritten accent) with `font-display: swap`.
-- Target: Lighthouse Performance ≥ 90 on mobile, CLS ≈ 0, JS payload on non-3D routes kept minimal.
-- `prefers-reduced-motion` fallback disables/simplifies GSAP sequences and swaps the 3D scene for a static frame.
+- Target: Lighthouse Performance ≥ 90 on mobile, CLS ≈ 0, JS payload kept minimal across all routes.
+- `prefers-reduced-motion` fallback disables/simplifies GSAP sequences and any experimental-UI motion, falling back to a static equivalent.
 
 ### Testing
 - Vitest for logic that can silently break: i18n key resolution/fallback, code-snippet loader (source must match the real file, not drift), stack-proficiency mapping, contact-link builders, any composable with branching logic.
@@ -163,14 +162,14 @@ src/
 
 1. **Scaffold** — Nuxt 4 + TS project on the FSD layout, ESLint/Prettier + `eslint-plugin-boundaries`, DESIGN.md tokens ported to `shared/styles` SCSS variables, i18n skeleton wired to `i18n/locales/*.json`, base UI kit + layout (nav pill, footer strip from DESIGN.md components)
 2. **Static shell** — all sections/routes with real copy (RU/EN), no wow-effects yet, fully navigable and readable
-3. **Wow layer** — 3D hero scene, GSAP scroll animations, experimental UI details, layered on top of the working static shell
+3. **Wow layer** — GSAP scroll animations, experimental UI details (new hero concept needed first — see section 5, point 6), layered on top of the working static shell
 4. **Code viewer** — build the panel, wire snippet sources into the relevant components
-5. **Polish & QA** — responsive/mobile pass, performance budget check (Lighthouse), accessibility pass (contrast, motion-reduce fallback for animations/3D), Vitest + Playwright smoke tests
+5. **Polish & QA** — responsive/mobile pass, performance budget check (Lighthouse), accessibility pass (contrast, motion-reduce fallback for animations), Vitest + Playwright smoke tests
 6. **Deploy** — Vercel project, custom domain if chosen
 
 ## 7. Risks / things to watch
 
-- **3D + heavy animation vs. performance:** must ship a `prefers-reduced-motion` fallback and keep the 3D scene light enough for mobile — otherwise it undercuts the "technical depth" claim instead of proving it.
+- **Heavy animation vs. performance:** must ship a `prefers-reduced-motion` fallback and keep GSAP sequences light enough for mobile — otherwise it undercuts the "technical depth" claim instead of proving it.
 - **Design tension:** DESIGN.md's Don'ts explicitly ban the effects we're adding. We're consciously overriding that — worth a short note in the Architecture section explaining the deliberate departure, since that departure is itself a design decision worth narrating.
 - **Code viewer staleness:** snippets must be pulled from real source at build time, not pasted by hand, or the "transparency" feature becomes a liability if it drifts from reality.
 
