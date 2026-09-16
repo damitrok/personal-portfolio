@@ -1,0 +1,78 @@
+// Ported from DESIGN.md — single source of truth for the monochrome
+// editorial token set. Values here must stay in sync with DESIGN.md;
+// update both together.
+
+// Colors
+$color-press-ink: #121212;
+$color-paper-white: #ffffff;
+$color-newsprint: #f1f1f1;
+$color-foil-gray: #e1e1e1;
+$color-mute-gray: #c5c5c5;
+
+// Surfaces
+$surface-canvas: $color-paper-white;
+$surface-paper: $color-newsprint;
+$surface-elevated-pill: $color-paper-white;
+
+// Typography — families (system substitutes for the DESIGN.md originals)
+$font-sans: 'Helvetica Neue', Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+$font-hand: 'Caveat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// Typography — weights
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-bold: 700;
+
+// Typography — scale (size / line-height / letter-spacing)
+$text-caption: 13px;
+$leading-caption: 2;
+
+$text-body: 17px;
+$leading-body: 1.29;
+
+$text-subheading: 20px;
+$leading-subheading: 1.2;
+
+$text-heading-sm: 22px;
+$leading-heading-sm: 1.2;
+
+$text-heading: 75px;
+$leading-heading: 1.05;
+$tracking-heading: -1.68px;
+
+$text-display: 274px;
+$leading-display: 1;
+$tracking-display: -10.96px;
+
+// Spacing scale
+$spacing-10: 10px;
+$spacing-17: 17px;
+$spacing-20: 20px;
+$spacing-30: 30px;
+$spacing-40: 40px;
+$spacing-48: 48px;
+$spacing-50: 50px;
+$spacing-72: 72px;
+$spacing-81: 81px;
+$spacing-144: 144px;
+
+// Border radius
+$radius-tags: 20px;
+$radius-cards: 20px;
+$radius-images: 288px;
+$radius-nav-item: 28px;
+$radius-nav-pill: 40px;
+
+// Layout
+$page-max-width: 1440px;
+$section-gap: 72px;
+$card-padding: 40px;
+$element-gap: 50px;
+
+// Breakpoints (mobile-first; DESIGN.md doesn't define these, chosen to fit
+// the display-type scale without letting 274px headlines break on phones)
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1440px;

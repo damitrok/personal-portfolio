@@ -1,0 +1,70 @@
+@use 'variables' as *;
+
+@mixin respond-up($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $bp-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $bp-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $bp-lg) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: $bp-xl) { @content; }
+  }
+}
+
+@mixin display-type {
+  font-family: $font-sans;
+  font-weight: $weight-bold;
+  font-size: clamp(48px, 12vw, #{$text-display});
+  line-height: $leading-display;
+  letter-spacing: clamp(-2px, -0.04em, #{$tracking-display});
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@mixin heading-type {
+  font-family: $font-sans;
+  font-weight: $weight-bold;
+  font-size: clamp(32px, 6vw, #{$text-heading});
+  line-height: $leading-heading;
+  letter-spacing: $tracking-heading;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@mixin body-type {
+  font-family: $font-sans;
+  font-weight: $weight-regular;
+  font-size: $text-body;
+  line-height: $leading-body;
+}
+
+@mixin mono-caption {
+  font-family: $font-mono;
+  font-weight: $weight-regular;
+  font-size: $text-caption;
+  line-height: $leading-caption;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+@mixin hairline-border($side: all) {
+  @if $side == all {
+    border: 1px solid $color-press-ink;
+  } @else {
+    border-#{$side}: 1px solid $color-press-ink;
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $color-press-ink;
+    outline-offset: 3px;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

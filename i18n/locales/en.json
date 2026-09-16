@@ -13,7 +13,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "[FRONTEND DEVELOPER]",
+      "eyebrow": "FRONTEND DEVELOPER",
       "name": "Dmitriy Mitrokhin",
       "role": "Frontend Developer",
       "tagline": "I build interfaces for complex systems — and this site is the proof.",
@@ -23,7 +23,7 @@
   },
   "about": {
     "title": "About",
-    "eyebrow": "[01 ABOUT]",
+    "eyebrow": "01 ABOUT",
     "intro": "Middle frontend developer working on complex, high-stakes internal systems. The specifics are under NDA — the craft is on display here instead.",
     "experience": {
       "label": "Experience",
@@ -35,7 +35,7 @@
   },
   "stack": {
     "title": "Stack & Tools",
-    "eyebrow": "[02 STACK]",
+    "eyebrow": "02 STACK",
     "subtitle": "What I use, and how well I know it.",
     "categories": {
       "languages": "Languages",
@@ -51,7 +51,7 @@
   },
   "architecture": {
     "title": "Architecture of This Site",
-    "eyebrow": "[03 ARCHITECTURE]",
+    "eyebrow": "03 ARCHITECTURE",
     "intro": "This page is the case study: no NDA-protected client work, just this site's own decisions, laid out honestly — including the parts of DESIGN.md we deliberately broke.",
     "sections": {
       "rendering": {
@@ -78,15 +78,15 @@
   },
   "contact": {
     "title": "Contact",
-    "eyebrow": "[04 CONTACT]",
+    "eyebrow": "04 CONTACT",
     "intro": "Open to hearing about frontend roles.",
     "email": {
       "label": "Email",
-      "value": "mitrofan12a@gmail.com"
+      "value": "mitrofan12a{'@'}gmail.com"
     },
     "telegram": {
       "label": "Telegram",
-      "value": "@your_handle"
+      "value": "{'@'}your_handle"
     }
   },
   "footer": {

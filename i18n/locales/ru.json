@@ -13,7 +13,7 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "[FRONTEND РАЗРАБОТЧИК]",
+      "eyebrow": "FRONTEND РАЗРАБОТЧИК",
       "name": "Дмитрий Митрохин",
       "role": "Frontend-разработчик",
       "tagline": "Делаю интерфейсы для сложных систем — этот сайт тому доказательство.",
@@ -23,7 +23,7 @@
   },
   "about": {
     "title": "Обо мне",
-    "eyebrow": "[01 ОБО МНЕ]",
+    "eyebrow": "01 ОБО МНЕ",
     "intro": "Middle frontend-разработчик, работаю со сложными внутренними системами. Детали под NDA — вместо кейсов здесь сам подход к работе.",
     "experience": {
       "label": "Опыт",
@@ -35,7 +35,7 @@
   },
   "stack": {
     "title": "Стек и инструменты",
-    "eyebrow": "[02 СТЕК]",
+    "eyebrow": "02 СТЕК",
     "subtitle": "Чем пользуюсь и насколько глубоко.",
     "categories": {
       "languages": "Языки",
@@ -51,7 +51,7 @@
   },
   "architecture": {
     "title": "Архитектура этого сайта",
-    "eyebrow": "[03 АРХИТЕКТУРА]",
+    "eyebrow": "03 АРХИТЕКТУРА",
     "intro": "Эта страница и есть кейс: без клиентских проектов под NDA — только честный разбор решений самого сайта, включая то, что мы сознательно нарушили в DESIGN.md.",
     "sections": {
       "rendering": {
@@ -78,15 +78,15 @@
   },
   "contact": {
     "title": "Контакты",
-    "eyebrow": "[04 КОНТАКТЫ]",
+    "eyebrow": "04 КОНТАКТЫ",
     "intro": "Открыт к предложениям по frontend-позициям.",
     "email": {
       "label": "Email",
-      "value": "mitrofan12a@gmail.com"
+      "value": "mitrofan12a{'@'}gmail.com"
     },
     "telegram": {
       "label": "Telegram",
-      "value": "@your_handle"
+      "value": "{'@'}your_handle"
     }
   },
   "footer": {
