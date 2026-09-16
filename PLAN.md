@@ -161,12 +161,12 @@ src/
 
 ## 6. Build phases
 
-1. **Scaffold** — Nuxt 4 + TS project on the FSD layout, ESLint/Prettier + `eslint-plugin-boundaries`, DESIGN.md tokens ported to `shared/styles` SCSS variables, i18n skeleton wired to `i18n/locales/*.json`, base UI kit + layout (nav pill, footer strip from DESIGN.md components)
-2. **Static shell** — all sections/routes with real copy (RU/EN), no wow-effects yet, fully navigable and readable
-3. **Wow layer** — GSAP scroll animations, experimental UI details (new hero concept needed first — see section 5, point 6), layered on top of the working static shell
-4. **Code viewer** — build the panel, wire snippet sources into the relevant components
-5. **Polish & QA** — responsive/mobile pass, performance budget check (Lighthouse), accessibility pass (contrast, motion-reduce fallback for animations), Vitest + Playwright smoke tests
-6. **Deploy** — Vercel project, custom domain if chosen
+1. **Scaffold** — done. Nuxt 4 + TS project on the FSD layout, ESLint/Prettier + `eslint-plugin-boundaries`, DESIGN.md tokens ported to `shared/styles` SCSS variables, i18n skeleton wired to `i18n/locales/*.json`, base UI kit + layout (nav pill, footer strip from DESIGN.md components)
+2. **Static shell** — done. All sections/routes have real placeholder copy (RU/EN), fully navigable and readable
+3. **Wow layer** — GSAP scroll animations, experimental UI details (new hero concept needed first — see section 5, point 6). Not started.
+4. **Code viewer** — done. `widgets/code-viewer/CodeViewerPanel.vue` (slide-over, Esc + focus trap, Shiki with a custom monochrome theme) and `features/code-snippet-trigger` (the `</>` affordance), wired into 4 of the 5 Architecture sections via `?raw` imports of the real backing files (a 5th — Rendering strategy — has no trigger: its claim lives in `nuxt.config.ts`, which Nuxt blocks from client-side import as a secrets guard, and no other file would honestly back it).
+5. **Polish & QA** — responsive/mobile pass, performance budget check (Lighthouse), accessibility pass (contrast, motion-reduce fallback for animations), Vitest + Playwright smoke tests. Not started.
+6. **Deploy** — Vercel project, custom domain if chosen. Not started.
 
 ## 7. Risks / things to watch
 

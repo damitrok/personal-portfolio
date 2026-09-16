@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { NavPill } from '@/widgets/nav-pill'
 import { FooterStrip } from '@/widgets/footer-strip'
+import { CodeViewerPanel } from '@/widgets/code-viewer'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import { FooterStrip } from '@/widgets/footer-strip'
       <slot />
     </main>
     <FooterStrip />
+    <CodeViewerPanel />
   </div>
 </template>
 

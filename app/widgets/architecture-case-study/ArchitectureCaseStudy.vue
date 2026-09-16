@@ -1,12 +1,26 @@
 <script setup lang="ts">
 import { MonoTag, Panel, SparkleDivider } from '@/shared/ui'
+import { CodeSnippetTrigger } from '@/features/code-snippet-trigger'
+import type { CodeSnippet } from '@/shared/lib/useCodeViewer'
+
+import mainScssSource from '@/shared/styles/main.scss?raw'
+import langSwitchSource from '@/features/lang-switch/LangSwitch.vue?raw'
+import codeViewerPanelSource from '@/widgets/code-viewer/CodeViewerPanel.vue?raw'
+import useReducedMotionSource from '@/shared/lib/useReducedMotion.ts?raw'
 
 const { t } = useI18n()
 
 // Content lives entirely in i18n (architecture.sections.*). Section bodies
 // are placeholder copy until the corresponding build phase lands — see
-// PLAN.md — and are rendered as-is, not paraphrased or hidden.
-const sections = computed(() => [
+// PLAN.md — and are rendered as-is, not paraphrased or hidden. Each
+// section's "view source" trigger points at the real file backing its
+// claim, pulled in at build time via `?raw` — never a hand-copied snippet.
+// "Rendering strategy" has none: that claim lives in nuxt.config.ts, which
+// Nuxt itself refuses to import client-side (a deliberate secrets guard) —
+// no substitute file here would honestly back the claim.
+const sections = computed<
+  Array<{ number: string; title: string; body: string; snippet?: CodeSnippet }>
+>(() => [
   {
     number: '01',
     title: t('architecture.sections.rendering.title'),
@@ -15,22 +29,26 @@ const sections = computed(() => [
   {
     number: '02',
     title: t('architecture.sections.animation.title'),
-    body: t('architecture.sections.animation.body')
+    body: t('architecture.sections.animation.body'),
+    snippet: { title: 'app/shared/styles/main.scss', source: mainScssSource, lang: 'scss' }
   },
   {
     number: '03',
     title: t('architecture.sections.i18n.title'),
-    body: t('architecture.sections.i18n.body')
+    body: t('architecture.sections.i18n.body'),
+    snippet: { title: 'app/features/lang-switch/LangSwitch.vue', source: langSwitchSource, lang: 'vue' }
   },
   {
     number: '04',
     title: t('architecture.sections.codeViewer.title'),
-    body: t('architecture.sections.codeViewer.body')
+    body: t('architecture.sections.codeViewer.body'),
+    snippet: { title: 'app/widgets/code-viewer/CodeViewerPanel.vue', source: codeViewerPanelSource, lang: 'vue' }
   },
   {
     number: '05',
     title: t('architecture.sections.performance.title'),
-    body: t('architecture.sections.performance.body')
+    body: t('architecture.sections.performance.body'),
+    snippet: { title: 'app/shared/lib/useReducedMotion.ts', source: useReducedMotionSource, lang: 'typescript' }
   }
 ])
 </script>
@@ -49,6 +67,12 @@ const sections = computed(() => [
           <MonoTag class="architecture-case-study__number">{{ section.number }}</MonoTag>
           <h2 class="architecture-case-study__section-title">{{ section.title }}</h2>
           <p class="architecture-case-study__section-body">{{ section.body }}</p>
+          <CodeSnippetTrigger
+            v-if="section.snippet"
+            :title="section.snippet.title"
+            :source="section.snippet.source"
+            :lang="section.snippet.lang"
+          />
         </Panel>
       </li>
     </ol>

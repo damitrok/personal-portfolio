@@ -2,7 +2,9 @@
   "common": {
     "langSwitch": "RU",
     "skipToContent": "Skip to content",
-    "viewSource": "View source"
+    "viewSource": "View source",
+    "close": "Close",
+    "loading": "Loading…"
   },
   "nav": {
     "home": "Home",
@@ -59,8 +61,8 @@
         "body": "Placeholder — explain static generation, Nuxt 4, and why no server is needed."
       },
       "animation": {
-        "title": "3D & animation",
-        "body": "Placeholder — explain TresJS/Three.js for the hero scene and GSAP for scroll-driven sequences, plus the reduced-motion fallback."
+        "title": "Animation",
+        "body": "Placeholder — explain GSAP for scroll-driven sequences and experimental UI details, plus the reduced-motion fallback. A 3D hero was tried and deliberately dropped — see this page's own architecture."
       },
       "i18n": {
         "title": "Bilingual content",
