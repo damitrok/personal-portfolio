@@ -173,7 +173,7 @@ function handleKeydown(event: KeyboardEvent) {
 
 .code-viewer__loading {
   @include mono-caption;
-  color: $color-mute-gray;
+  color: $color-press-ink;
   padding: $spacing-20;
 }
 

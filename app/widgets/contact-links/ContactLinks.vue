@@ -80,6 +80,6 @@ const telegramHref = computed(() => `https://t.me/${stripLeadingAt(telegramValue
 
 .contact-links__label {
   @include mono-caption;
-  color: $color-mute-gray;
+  color: $color-press-ink;
 }
 </style>

@@ -141,7 +141,7 @@ const sections = computed<
 }
 
 .architecture-case-study__number {
-  color: $color-mute-gray;
+  color: $color-press-ink;
 }
 
 .architecture-case-study__section-title {

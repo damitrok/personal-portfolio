@@ -33,14 +33,19 @@ function handleClick() {
   gap: $spacing-10;
   background: transparent;
   border: none;
-  padding: 0;
+  padding: $spacing-10 * 0.4 $spacing-10;
+  margin: 0 (-$spacing-10);
+  border-radius: $radius-nav-item;
   cursor: pointer;
   color: $color-press-ink;
   @include mono-caption;
   @include focus-ring;
 
   &:hover {
-    color: $color-mute-gray;
+    // A lighter foreground on hover would fail WCAG contrast against the
+    // white/newsprint backgrounds this sits on — de-emphasize with a fill
+    // instead, the same pattern Pill and AppButton use.
+    background: $color-newsprint;
   }
 }
 

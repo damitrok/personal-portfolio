@@ -71,7 +71,7 @@ const { t } = useI18n()
 
 .about-section__fact-label {
   @include mono-caption;
-  color: $color-mute-gray;
+  color: $color-press-ink;
 }
 
 .about-section__fact-value {

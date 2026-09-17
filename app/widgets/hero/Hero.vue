@@ -48,6 +48,6 @@ const { t } = useI18n()
 
 .hero__scroll-hint {
   @include mono-caption;
-  color: $color-mute-gray;
+  color: $color-press-ink;
 }
 </style>

@@ -69,7 +69,7 @@ const groups = groupByCategory(stackItems)
 
 .stack-grid__category-label {
   @include mono-caption;
-  color: $color-mute-gray;
+  color: $color-press-ink;
   margin: 0 0 $spacing-20;
 }
 
