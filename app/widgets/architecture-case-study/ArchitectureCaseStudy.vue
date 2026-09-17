@@ -1,25 +1,42 @@
 <script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
 import { MonoTag, Panel, SparkleDivider } from '@/shared/ui'
 import { CodeSnippetTrigger } from '@/features/code-snippet-trigger'
 import type { CodeSnippet } from '@/shared/lib/useCodeViewer'
 
-import mainScssSource from '@/shared/styles/main.scss?raw'
-import langSwitchSource from '@/features/lang-switch/LangSwitch.vue?raw'
-import codeViewerPanelSource from '@/widgets/code-viewer/CodeViewerPanel.vue?raw'
-import useReducedMotionSource from '@/shared/lib/useReducedMotion.ts?raw'
-
 const { t } = useI18n()
+
+type SnippetKey = 'animation' | 'i18n' | 'codeViewer' | 'performance'
+
+// Real source, fetched at runtime from public/snippets.json (generated at
+// build time by scripts/generate-snippets.mjs — see that file for why this
+// is a fetched static asset rather than a `?raw` module import: Nitro's
+// server/prerender bundle uses Rollup, which fails to parse a `?raw`-
+// imported .ts/.vue file's generated chunk, even behind a dynamic import()
+// that only ever runs client-side — Rollup still bundles it at build time
+// regardless of any runtime guard).
+const loadedSnippets = ref<Partial<Record<SnippetKey, CodeSnippet>>>({})
+
+onMounted(async () => {
+  const response = await fetch('/snippets.json')
+  loadedSnippets.value = await response.json()
+})
+
+function snippetFor(key: SnippetKey | undefined): CodeSnippet | undefined {
+  if (!key) return undefined
+  return loadedSnippets.value[key]
+}
 
 // Content lives entirely in i18n (architecture.sections.*). Section bodies
 // are placeholder copy until the corresponding build phase lands — see
 // PLAN.md — and are rendered as-is, not paraphrased or hidden. Each
 // section's "view source" trigger points at the real file backing its
-// claim, pulled in at build time via `?raw` — never a hand-copied snippet.
+// claim — never a hand-copied snippet.
 // "Rendering strategy" has none: that claim lives in nuxt.config.ts, which
 // Nuxt itself refuses to import client-side (a deliberate secrets guard) —
 // no substitute file here would honestly back the claim.
 const sections = computed<
-  Array<{ number: string; title: string; body: string; snippet?: CodeSnippet }>
+  Array<{ number: string; title: string; body: string; snippetKey?: SnippetKey }>
 >(() => [
   {
     number: '01',
@@ -30,25 +47,25 @@ const sections = computed<
     number: '02',
     title: t('architecture.sections.animation.title'),
     body: t('architecture.sections.animation.body'),
-    snippet: { title: 'app/shared/styles/main.scss', source: mainScssSource, lang: 'scss' }
+    snippetKey: 'animation'
   },
   {
     number: '03',
     title: t('architecture.sections.i18n.title'),
     body: t('architecture.sections.i18n.body'),
-    snippet: { title: 'app/features/lang-switch/LangSwitch.vue', source: langSwitchSource, lang: 'vue' }
+    snippetKey: 'i18n'
   },
   {
     number: '04',
     title: t('architecture.sections.codeViewer.title'),
     body: t('architecture.sections.codeViewer.body'),
-    snippet: { title: 'app/widgets/code-viewer/CodeViewerPanel.vue', source: codeViewerPanelSource, lang: 'vue' }
+    snippetKey: 'codeViewer'
   },
   {
     number: '05',
     title: t('architecture.sections.performance.title'),
     body: t('architecture.sections.performance.body'),
-    snippet: { title: 'app/shared/lib/useReducedMotion.ts', source: useReducedMotionSource, lang: 'typescript' }
+    snippetKey: 'performance'
   }
 ])
 </script>
@@ -68,10 +85,10 @@ const sections = computed<
           <h2 class="architecture-case-study__section-title">{{ section.title }}</h2>
           <p class="architecture-case-study__section-body">{{ section.body }}</p>
           <CodeSnippetTrigger
-            v-if="section.snippet"
-            :title="section.snippet.title"
-            :source="section.snippet.source"
-            :lang="section.snippet.lang"
+            v-if="snippetFor(section.snippetKey)"
+            :title="snippetFor(section.snippetKey)!.title"
+            :source="snippetFor(section.snippetKey)!.source"
+            :lang="snippetFor(section.snippetKey)!.lang"
           />
         </Panel>
       </li>

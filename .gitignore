@@ -5,7 +5,17 @@ node_modules/
 .nuxt/
 .output/
 .data/
+dist
 dist/
+
+# Generated at build time by scripts/generate-snippets.mjs — never hand-edited
+public/snippets.json
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
 
 # Env
 .env

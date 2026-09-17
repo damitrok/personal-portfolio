@@ -3,8 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "snippets": "node scripts/generate-snippets.mjs",
+    "predev": "npm run snippets",
     "dev": "nuxt dev",
+    "prebuild": "npm run snippets",
     "build": "nuxt build",
+    "pregenerate": "npm run snippets",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
@@ -12,7 +16,8 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt typecheck",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@nuxtjs/i18n": "10.6.0",
@@ -22,6 +27,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
+    "@playwright/test": "1.63.0",
     "@vitejs/plugin-vue": "6.0.9",
     "@vue/test-utils": "2.5.1",
     "eslint": "10.10.0",
