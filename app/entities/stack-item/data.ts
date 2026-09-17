@@ -8,8 +8,6 @@ export const stackItems: StackItem[] = [
   { name: 'HTML', category: 'languages', level: 'advanced' },
   { name: 'Vue 3', category: 'frameworks', level: 'advanced' },
   { name: 'Nuxt 4', category: 'frameworks', level: 'confident' },
-  { name: 'Three.js / TresJS', category: 'frameworks', level: 'familiar' },
-  { name: 'GSAP', category: 'tooling', level: 'familiar' },
   { name: 'Vite', category: 'tooling', level: 'confident' },
   { name: 'ESLint', category: 'tooling', level: 'confident' },
   { name: 'Git', category: 'tooling', level: 'confident' },
