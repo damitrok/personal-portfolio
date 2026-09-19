@@ -22,9 +22,26 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    // Pinned: on Vercel, Nitro auto-detects `vercel-static` from the
+    // environment, which prerendered only 7 routes there (no /ru/*, no
+    // lazy-loaded i18n message files) versus 24 locally under `static`.
+    preset: 'static',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about', '/stack', '/architecture', '/contact']
+      // Listed explicitly rather than relying on the crawler to discover
+      // the locale-prefixed pages, so the route set can't differ by host.
+      routes: [
+        '/',
+        '/about',
+        '/stack',
+        '/architecture',
+        '/contact',
+        '/ru',
+        '/ru/about',
+        '/ru/stack',
+        '/ru/architecture',
+        '/ru/contact'
+      ]
     }
   },
 
