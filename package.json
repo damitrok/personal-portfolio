@@ -10,6 +10,7 @@
     "build": "nuxt build",
     "pregenerate": "npm run snippets",
     "generate": "nuxt generate",
+    "postgenerate": "node scripts/drop-spa-fallback.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
